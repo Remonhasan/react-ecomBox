@@ -1,8 +1,12 @@
 import React from 'react'
+import Header from '../../Backend/Pages/Layout/Header'
 
 const Login = () => {
   return (
-    <div>Login</div>
+    <div>
+      <Header />
+      Login
+    </div>
   )
 }
 

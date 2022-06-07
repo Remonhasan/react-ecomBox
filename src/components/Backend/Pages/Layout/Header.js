@@ -13,11 +13,22 @@ const Header = () => {
             </button>
             <div className="collapse navbar-collapse" id="navbarSupportedContent">
               <ul className="navbar-nav me-auto mb-2 nav-bar-wrapper mb-lg-0">
-                <Link to="/home">Home</Link>
-                <Link to="/add">Add Product</Link>
-                <Link to="/update">Update Product</Link>
-                <Link to="/login">Login</Link>
-                <Link to="/register">Register</Link>
+
+                {/* if user logged in  */}
+
+                {localStorage.getItem('user-info') ?
+                  <>
+                    <Link to="/home">Home</Link>
+                    <Link to="/add">Add Product</Link>
+                    <Link to="/update">Update Product</Link>
+                  </>
+                  :
+                  <>
+                    <Link to="/login">Login</Link>
+                    <Link to="/register">Register</Link>
+                  </>
+                }
+
               </ul>
               <form className="d-flex">
                 <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search"></input>

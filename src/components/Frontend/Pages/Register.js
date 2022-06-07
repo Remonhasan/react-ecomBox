@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
+import Header from '../../Backend/Pages/Layout/Header';
 
 const Register = () => {
 
@@ -17,7 +18,7 @@ const Register = () => {
         "Accept": "application/json"
       },
       body: JSON.stringify(data)
-    });
+    }); 
 
     result = await result.json();
     console.warn("result", result)
@@ -25,6 +26,8 @@ const Register = () => {
     history("/add");
   }
   return (
+    <div>
+      <Header/>
     <div className="col-sm-6 offset-sm-3">
       <h1>Sign Up</h1>
       <input type="text" className="form-control" value={name} onChange={(e) => setName(e.target.value)} placeholder="Enter Name"></input>
@@ -35,6 +38,7 @@ const Register = () => {
       <br />
       <button className="btn btn-primary" onClick={signUp}>Sign Up</button>
 
+    </div>
     </div>
   )
 }

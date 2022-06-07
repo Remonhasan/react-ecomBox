@@ -1,8 +1,12 @@
 import React from 'react'
+import Header from '../Layout/Header'
 
 function UpdateProduct() {
   return (
-    <div>UpdateProduct</div>
+    <div>
+      <Header />
+      UpdateProduct
+    </div>
   )
 }
 
