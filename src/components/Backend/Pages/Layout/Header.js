@@ -33,6 +33,15 @@ const Header = () => {
                 <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search"></input>
                 <button className="btn btn-outline-success" type="submit">Search</button>
               </form>
+              <div className="dropdown ml-5">
+                <a className="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                  User Name
+                </a>
+                <ul className="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                  <li><a className="dropdown-item" href="#">Profile</a></li>
+                  <li><a className="dropdown-item" href="#">Logout</a></li>
+                </ul>
+              </div>
             </div>
           </div>
         </nav>
