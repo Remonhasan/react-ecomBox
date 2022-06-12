@@ -1,7 +1,15 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
+import Header from '../../Backend/Pages/Layout/Header';
 
 const Register = () => {
+
+  // if authenticated then didn't access the register route
+  useEffect(() => {
+    if (localStorage.getItem('user-info')) {
+      history("/add");
+    }
+  }, [])
 
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -25,16 +33,19 @@ const Register = () => {
     history("/add");
   }
   return (
-    <div className="col-sm-6 offset-sm-3">
-      <h1>Sign Up</h1>
-      <input type="text" className="form-control" value={name} onChange={(e) => setName(e.target.value)} placeholder="Enter Name"></input>
-      <br />
-      <input type="text" className="form-control" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="Enter Email"></input>
-      <br />
-      <input type="text" className="form-control" value={password} onChange={(e) => setPassword(e.target.value)} placeholder="Enter Password"></input>
-      <br />
-      <button className="btn btn-primary" onClick={signUp}>Sign Up</button>
+    <div>
+      <Header />
+      <div className="col-sm-6 offset-sm-3">
+        <h1>Sign Up</h1>
+        <input type="text" className="form-control" value={name} onChange={(e) => setName(e.target.value)} placeholder="Enter Name"></input>
+        <br />
+        <input type="text" className="form-control" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="Enter Email"></input>
+        <br />
+        <input type="text" className="form-control" value={password} onChange={(e) => setPassword(e.target.value)} placeholder="Enter Password"></input>
+        <br />
+        <button className="btn btn-primary" onClick={signUp}>Sign Up</button>
 
+      </div>
     </div>
   )
 }
