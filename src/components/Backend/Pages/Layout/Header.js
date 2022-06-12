@@ -1,7 +1,19 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom'
 
 const Header = () => {
+
+  // Get user infos.
+  const user = JSON.parse(localStorage.getItem('user-info'))
+  const history = useNavigate();
+
+  // Logout Function
+  function logout() {
+    localStorage.clear();
+    history("/register");
+  }
+
   return (
     <div>
       <div className="container">
@@ -33,15 +45,23 @@ const Header = () => {
                 <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search"></input>
                 <button className="btn btn-outline-success" type="submit">Search</button>
               </form>
-              <div className="dropdown ml-5">
-                <a className="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
-                  User Name
-                </a>
-                <ul className="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                  <li><a className="dropdown-item" href="#">Profile</a></li>
-                  <li><a className="dropdown-item" href="#">Logout</a></li>
-                </ul>
-              </div>
+
+              {localStorage.getItem('user-info') ?
+                (<>
+                  <div className="dropdown ml-5">
+                    <a className="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                      {user && user.name}
+                    </a>
+                    <ul className="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                      <li><a className="dropdown-item" href="#">Profile</a></li>
+                      <li><a onClick={logout} lassName="dropdown-item" href="#">Logout</a></li>
+                    </ul>
+                  </div>
+                </>) : (<>
+                  
+                </>)
+              }
+
             </div>
           </div>
         </nav>
