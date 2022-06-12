@@ -7,7 +7,6 @@ const Header = () => {
       <div className="container">
         <nav className="navbar navbar-expand-lg navbar-light bg-light">
           <div className="container-fluid">
-            <a className="navbar-brand" href="#">Navbar</a>
             <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
               <span className="navbar-toggler-icon"></span>
             </button>
@@ -18,12 +17,12 @@ const Header = () => {
 
                 {localStorage.getItem('user-info') ?
                   <>
-                    <Link to="/home">Home</Link>
                     <Link to="/add">Add Product</Link>
                     <Link to="/update">Update Product</Link>
                   </>
                   :
                   <>
+                    <Link to="/home">Home</Link>
                     <Link to="/login">Login</Link>
                     <Link to="/register">Register</Link>
                   </>
